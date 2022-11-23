@@ -27,9 +27,30 @@ struct ContentView: View {
             }
             // scrollview
             ScrollView {
-                // add place holder for messages
-                
-                
+                // add a for each loop
+                ForEach(messages, id: \.self) { message in
+                    // created a check the if the message contains USERS
+                    if message.contains("[USER]") {
+                        // let new user
+                        let newMessage = message.replacingOccurrences(of: "[USER]", with: "")
+                        HStack {
+                            // push the message to the right side
+                            Spacer()
+                            // customize text box
+                            if #available(iOS 15.0, *) {
+                                Text(newMessage)
+                                // with padding
+                                    .padding()
+                                    .foregroundColor(.white)
+                                    .background(.blue.opacity(0.8))
+                                    .padding(.horizontal, 16)
+                                    .padding(.bottom, 10)
+                            } else {
+                                // Fallback on earlier versions
+                            }
+                        }
+                    }
+                }
             }
             // message bar
             HStack {
