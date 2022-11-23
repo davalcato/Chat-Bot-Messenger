@@ -34,7 +34,30 @@ struct ContentView: View {
             // message bar
             HStack {
                 // textfield
-                TextField("Type something", text: $messageText)
+                if #available(iOS 15.0, *) {
+                    TextField("Type something", text: $messageText)
+                    // small text box with padding
+                        .padding()
+                    // change back ground color
+                        .background(Color.gray.opacity(0.1))
+                    // added corner radius
+                        .cornerRadius(10)
+                    // provide submit action
+                        .onSubmit {
+                            
+                        }
+                    
+                } else {
+                    // Fallback on earlier versions
+                }
+                Button {
+                    
+                } label: {
+                    Image(systemName: "paperplane.fill")
+                    
+                }
+                // size
+                .font(.system(size: 26))
             }
         }
     }
