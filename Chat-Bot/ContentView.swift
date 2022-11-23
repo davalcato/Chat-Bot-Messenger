@@ -44,21 +44,24 @@ struct ContentView: View {
                         .cornerRadius(10)
                     // provide submit action
                         .onSubmit {
-                            
+                            // sendMessage
                         }
                     
                 } else {
                     // Fallback on earlier versions
                 }
                 Button {
-                    
+                    // sendMessage
                 } label: {
                     Image(systemName: "paperplane.fill")
                     
                 }
                 // size
                 .font(.system(size: 26))
+                .padding(.horizontal, 10)
             }
+            // entire HStack has padding around it
+            .padding()
         }
     }
 }
