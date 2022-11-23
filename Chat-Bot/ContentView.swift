@@ -11,7 +11,7 @@ struct ContentView: View {
     // variables
     @State private var messageText = ""
     // array of messages of type string
-    @State var message: [String] = ["Welcome to Chat Bot"]
+    @State var messages: [String] = ["Welcome to Chat Bot"]
     
     var body: some View {
         VStack {
@@ -44,7 +44,8 @@ struct ContentView: View {
                         .cornerRadius(10)
                     // provide submit action
                         .onSubmit {
-                            // sendMessage
+                            // add the functionality to send the messages
+                            
                         }
                     
                 } else {
@@ -63,6 +64,26 @@ struct ContentView: View {
             // entire HStack has padding around it
             .padding()
         }
+    }
+    //  function called
+    func sendMessage(message: String) {
+        // each time you send a message add animation
+        withAnimation {
+            // append text
+            messages.append("[USER]" + message)
+            // send message call
+            self.messageText = ""
+        }
+        // send bot message to simulate a 1 second delay on main thread
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            // add animation
+            withAnimation {
+                messages.append(getBotResponse(message: message))
+                
+            }
+            
+        }
+        
     }
 }
 
