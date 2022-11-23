@@ -45,7 +45,7 @@ struct ContentView: View {
                     // provide submit action
                         .onSubmit {
                             // add the functionality to send the messages
-                            
+                            sendMessage(message: messageText)
                         }
                     
                 } else {
@@ -53,6 +53,7 @@ struct ContentView: View {
                 }
                 Button {
                     // sendMessage
+                    sendMessage(message: messageText)
                 } label: {
                     Image(systemName: "paperplane.fill")
                     
