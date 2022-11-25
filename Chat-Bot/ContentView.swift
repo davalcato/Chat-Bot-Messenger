@@ -49,6 +49,21 @@ struct ContentView: View {
                                 // Fallback on earlier versions
                             }
                         }
+                    } else {
+                        //customized the chat bot left side
+                        HStack {
+                            if #available(iOS 15.0, *) {
+                                Text(message)
+                                // with padding
+                                    .padding()
+                                    .background(.gray.opacity(0.15))
+                                    .padding(.horizontal, 16)
+                                    .padding(.bottom, 10)
+                            } else {
+                                // Fallback on earlier versions
+                            }
+                            Spacer()
+                        }
                     }
                 }
             }
