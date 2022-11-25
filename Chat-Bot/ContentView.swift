@@ -43,6 +43,7 @@ struct ContentView: View {
                                     .padding()
                                     .foregroundColor(.white)
                                     .background(.blue.opacity(0.8))
+                                    .cornerRadius(10)
                                     .padding(.horizontal, 16)
                                     .padding(.bottom, 10)
                             } else {
@@ -57,6 +58,7 @@ struct ContentView: View {
                                 // with padding
                                     .padding()
                                     .background(.gray.opacity(0.15))
+                                    .cornerRadius(10)
                                     .padding(.horizontal, 16)
                                     .padding(.bottom, 10)
                             } else {
@@ -65,8 +67,13 @@ struct ContentView: View {
                             Spacer()
                         }
                     }
-                }
-            }
+                }.rotationEffect(.degrees(180))
+                // trick the program with this code to appear at bottom
+            }.rotationEffect(.degrees(180))
+            // had background color
+                .background(Color.gray.opacity(0.10))
+            
+            
             // message bar
             HStack {
                 // textfield
